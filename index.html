@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FootballHub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            ⚽ FootballHub
+        </div>
+
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#players">Players</a>
+            <a href="#matches">Matches</a>
+            <a href="#formation">Formation</a>
+            <a href="#public">Explore</a>
+        </nav>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section id="dashboard" class="dashboard section">
+
+            <div class="hero-text">
+
+                <p class="small-title">FOOTBALL MANAGEMENT PLATFORM</p>
+
+                <h1>
+                    Manage your team.
+                    <span>Track your game.</span>
+                </h1>
+
+                <p>
+                    Manage players, matches, formations and football
+                    statistics from one place.
+                </p>
+
+                <button class="primary-btn" onclick="showSection('players')">
+                    Manage Players
+                </button>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>👥</span>
+                    <h2 id="playerCount">24</h2>
+                    <p>Players</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>⚽</span>
+                    <h2 id="matchCount">15</h2>
+                    <p>Matches</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>🏆</span>
+                    <h2>10</h2>
+                    <p>Wins</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>🥅</span>
+                    <h2 id="goalCount">31</h2>
+                    <p>Goals</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PLAYERS ================= -->
+
+        <section id="players" class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="small-title">TEAM MANAGEMENT</p>
+
+                    <h2>Players</h2>
+
+                    <p>
+                        Keep track of your team's players and statistics.
+                    </p>
+                </div>
+
+                <button class="primary-btn" onclick="openPlayerForm()">
+                    + Add Player
+                </button>
+
+            </div>
+
+
+            <!-- PLAYER FORM -->
+
+            <div id="playerForm" class="form-box hidden">
+
+                <h3>Add New Player</h3>
+
+                <form onsubmit="addPlayer(event)">
+
+                    <input
+                        type="text"
+                        id="playerName"
+                        placeholder="Player name"
+                        required
+                    >
+
+                    <select id="playerPosition" required>
+
+                        <option value="">Select position</option>
+
+                        <option>GK</option>
+                        <option>CB</option>
+                        <option>LB</option>
+                        <option>RB</option>
+                        <option>CM</option>
+                        <option>CAM</option>
+                        <option>LW</option>
+                        <option>RW</option>
+                        <option>ST</option>
+
+                    </select>
+
+                    <input
+                        type="number"
+                        id="playerNumber"
+                        placeholder="Jersey number"
+                        min="1"
+                        max="99"
+                        required
+                    >
+
+                    <button class="primary-btn" type="submit">
+                        Add Player
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- PLAYER CARDS -->
+
+            <div id="playerList" class="player-grid">
+
+                <div class="player-card">
+
+                    <div class="player-avatar">
+                        7
+                    </div>
+
+                    <div class="player-info">
+
+                        <h3>David Okoro</h3>
+
+                        <p>ST • #7</p>
+
+                        <div class="player-stats">
+
+                            <span>⚽ 12 Goals</span>
+                            <span>🎯 6 Assists</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="player-card">
+
+                    <div class="player-avatar">
+                        2
+                    </div>
+
+                    <div class="player-info">
+
+                        <h3>John James</h3>
+
+                        <p>RB • #2</p>
+
+                        <div class="player-stats">
+
+                            <span>⚽ 2 Goals</span>
+                            <span>🎯 5 Assists</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="player-card">
+
+                    <div class="player-avatar">
+                        10
+                    </div>
+
+                    <div class="player-info">
+
+                        <h3>Michael Paul</h3>
+
+                        <p>CAM • #10</p>
+
+                        <div class="player-stats">
+
+                            <span>⚽ 8 Goals</span>
+                            <span>🎯 9 Assists</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MATCHES ================= -->
+
+        <section id="matches" class="section dark-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="small-title">MATCH MANAGEMENT</p>
+
+                    <h2>Matches</h2>
+
+                    <p>
+                        Record fixtures and results.
+                    </p>
+                </div>
+
+                <button class="primary-btn" onclick="addMatch()">
+                    + Add Match
+                </button>
+
+            </div>
+
+
+            <div class="match-card upcoming">
+
+                <div>
+
+                    <span class="match-label">
+                        UPCOMING
+                    </span>
+
+                    <h3>FootballHub FC vs City Stars</h3>
+
+                    <p>
+                        Saturday • 4:00 PM
+                    </p>
+
+                    <p>
+                        📍 Enugu Stadium
+                    </p>
+
+                </div>
+
+                <strong>
+                    VS
+                </strong>
+
+            </div>
+
+
+            <h3 class="subheading">
+                Recent Results
+            </h3>
+
+
+            <div class="match-list">
+
+                <div class="result-card">
+
+                    <div>
+                        <strong>FootballHub FC</strong>
+                        <span>3 - 1</span>
+                        <strong>United FC</strong>
+                    </div>
+
+                    <p>28 September 2026</p>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <div>
+                        <strong>FootballHub FC</strong>
+                        <span>2 - 0</span>
+                        <strong>Rangers FC</strong>
+                    </div>
+
+                    <p>21 September 2026</p>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <div>
+                        <strong>FootballHub FC</strong>
+                        <span>1 - 1</span>
+                        <strong>Eagles FC</strong>
+                    </div>
+
+                    <p>14 September 2026</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FORMATION ================= -->
+
+        <section id="formation" class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="small-title">
+                        MATCH PLANNING
+                    </p>
+
+                    <h2>Formation Builder</h2>
+
+                    <p>
+                        Choose a formation and arrange your players.
+                    </p>
+
+                </div>
+
+               <select
+    id="formationSelect"
+    onchange="changeFormation()">
+
+    <option value="4-4-2">4-4-2</option>
+    <option value="4-3-3">4-3-3</option>
+    <option value="4-2-3-1">4-2-3-1</option>
+    <option value="3-5-2">3-5-2</option>
+
+</select>
+
+
+<div class="formation-controls">
+
+    <button
+        onclick="saveFormation()"
+        class="save-btn">
+
+        Save Formation
+
+    </button>
+
+
+    <button
+        onclick="resetFormation()"
+        class="reset-btn">
+
+        Reset Formation
+
+    </button>
+
+</div>
+
+
+<div class="saved-formations">
+
+    <h3>My Saved Formations</h3>
+
+    <select id="savedFormationSelect">
+        <option value="">
+            Select a saved formation
+        </option>
+    </select>
+
+    <div class="saved-formation-buttons">
+
+        <button
+            onclick="loadSelectedFormation()"
+            class="load-btn">
+
+            Load Formation
+
+        </button>
+
+        <button
+            onclick="deleteSelectedFormation()"
+            class="delete-btn">
+
+            Delete Formation
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+            </div>
+
+
+            <div class="formation-area">
+
+                <div class="football-pitch" id="pitch">
+
+                    <div class="pitch-line center-line"></div>
+
+                    <div class="center-circle"></div>
+
+                    <div class="goal-area top-goal"></div>
+
+                    <div class="goal-area bottom-goal"></div>
+
+
+                    <div class="football-player goalkeeper">
+                        GK
+                    </div>
+
+                    <div class="football-player defender d1">
+                        LB
+                    </div>
+
+                    <div class="football-player defender d2">
+                        CB
+                    </div>
+
+                    <div class="football-player defender d3">
+                        CB
+                    </div>
+
+                    <div class="football-player defender d4">
+                        RB
+                    </div>
+
+
+                    <div class="football-player midfielder m1">
+                        LM
+                    </div>
+
+                    <div class="football-player midfielder m2">
+                        CM
+                    </div>
+
+                    <div class="football-player midfielder m3">
+                        CM
+                    </div>
+
+                    <div class="football-player midfielder m4">
+                        RM
+                    </div>
+
+
+                    <div class="football-player striker s1">
+                        ST
+                    </div>
+
+                    <div class="football-player striker s2">
+                        ST
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PUBLIC FOOTBALL NETWORK ================= -->
+
+        <section id="public" class="section dark-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="small-title">
+                        FOOTBALL NETWORK
+                    </p>
+
+                    <h2>Explore Teams & Players</h2>
+
+                    <p>
+                        Discover public football profiles.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search teams or players..."
+                    oninput="searchFootball()"
+                >
+
+            </div>
+
+
+            <div class="public-grid" id="publicGrid">
+
+                <div class="public-card">
+
+                    <span class="badge">
+                        TEAM
+                    </span>
+
+                    <h3>FootballHub FC</h3>
+
+                    <p>📍 Enugu</p>
+
+                    <p>👥 24 Players</p>
+
+                    <button class="outline-btn">
+                        View Team
+                    </button>
+
+                </div>
+
+
+                <div class="public-card">
+
+                    <span class="badge">
+                        PLAYER
+                    </span>
+
+                    <h3>David Okoro</h3>
+
+                    <p>ST • FootballHub FC</p>
+
+                    <p>⚽ 12 Goals • 🎯 6 Assists</p>
+
+                    <button class="outline-btn">
+                        View Profile
+                    </button>
+
+                </div>
+
+
+                <div class="public-card">
+
+                    <span class="badge">
+                        PLAYER
+                    </span>
+
+                    <h3>John James</h3>
+
+                    <p>RB • FootballHub FC</p>
+
+                    <p>⚽ 2 Goals • 🎯 5 Assists</p>
+
+                    <button class="outline-btn">
+                        View Profile
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>⚽ FootballHub</h3>
+
+        <p>
+            Manage your team. Track your game.
+        </p>
+
+        <p>
+            © 2026 FootballHub
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

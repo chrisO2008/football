@@ -1,0 +1,929 @@
+/* ================= GENERAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #111827;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+    width: 100%;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #071c12;
+    color: white;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.header nav {
+    display: flex;
+    gap: 25px;
+}
+
+.header nav a {
+    color: #d1fae5;
+    font-size: 14px;
+}
+
+.header nav a:hover {
+    color: white;
+}
+
+.menu-btn {
+    display: none;
+
+    background: transparent;
+    color: white;
+
+    border: none;
+
+    font-size: 25px;
+}
+
+
+/* ================= SECTIONS ================= */
+
+.section {
+    padding: 80px 7%;
+}
+
+.dark-section {
+    background: #071c12;
+    color: white;
+}
+
+
+/* ================= DASHBOARD ================= */
+
+.dashboard {
+    min-height: 650px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 50px;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #d1fae5,
+            transparent 35%
+        );
+}
+
+.hero-text {
+    max-width: 700px;
+}
+
+.small-title {
+    color: #16a34a;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero-text h1 {
+    font-size: clamp(40px, 7vw, 75px);
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+.hero-text h1 span {
+    color: #16a34a;
+}
+
+.hero-text p {
+    color: #64748b;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 25px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.primary-btn {
+    border: none;
+    background: #16a34a;
+    color: white;
+
+    padding: 13px 22px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.primary-btn:hover {
+    background: #15803d;
+}
+
+.outline-btn {
+    border: 1px solid #22c55e;
+
+    background: transparent;
+    color: #22c55e;
+
+    padding: 10px 16px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+
+/* ================= STATISTICS ================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.stat-card span {
+    font-size: 25px;
+}
+
+.stat-card h2 {
+    margin-top: 15px;
+    font-size: 35px;
+}
+
+.stat-card p {
+    color: #64748b;
+    margin-top: 5px;
+}
+
+
+/* ================= SECTION HEADING ================= */
+
+.section-heading {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 40px;
+}
+
+.section-heading h2 {
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: #64748b;
+}
+
+
+/* ================= PLAYER FORM ================= */
+
+.form-box {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    margin-bottom: 30px;
+
+    border: 1px solid #e5e7eb;
+}
+
+.form-box h3 {
+    margin-bottom: 20px;
+}
+
+.form-box form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.form-box input,
+.form-box select,
+.search-box input,
+#formationSelect {
+    padding: 13px 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: white;
+}
+
+.form-box input:focus,
+.form-box select:focus,
+.search-box input:focus {
+    border-color: #16a34a;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* ================= PLAYERS ================= */
+
+.player-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.player-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    border: 1px solid #e5e7eb;
+}
+
+.player-avatar {
+    min-width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.player-info h3 {
+    margin-bottom: 5px;
+}
+
+.player-info p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+}
+
+.player-stats {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.player-stats span {
+    font-size: 12px;
+
+    background: #f1f5f9;
+
+    padding: 6px 8px;
+
+    border-radius: 5px;
+}
+
+
+/* ================= MATCHES ================= */
+
+.match-card {
+    padding: 30px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    background: #0d2a1c;
+
+    border: 1px solid #1e4632;
+
+    margin-bottom: 35px;
+}
+
+.match-label {
+    color: #4ade80;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.match-card h3 {
+    margin: 10px 0;
+}
+
+.match-card p {
+    color: #9ca3af;
+
+    margin-top: 5px;
+}
+
+.match-card > strong {
+    font-size: 25px;
+
+    color: #4ade80;
+}
+
+.subheading {
+    margin-bottom: 20px;
+}
+
+.match-list {
+    display: grid;
+
+    gap: 15px;
+}
+
+.result-card {
+    background: #0d2a1c;
+
+    padding: 20px;
+
+    border-radius: 12px;
+}
+
+.result-card div {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.result-card div span {
+    color: #4ade80;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+.result-card p {
+    color: #9ca3af;
+
+    font-size: 13px;
+
+    margin-top: 8px;
+}
+
+
+/* ================= FORMATION ================= */
+
+/* ================= FORMATION ================= */
+
+.formation-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The pitch now has a controlled height */
+.football-pitch {
+    position: relative;
+
+    width: min(600px, 90vw);
+
+    /* Fixed height */
+    height: 650px;
+
+    max-height: 70vh;
+
+    min-height: 450px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #166534 0,
+            #166534 10%,
+            #15803d 10%,
+            #15803d 20%
+        );
+
+    border: 4px solid white;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    touch-action: none;
+}
+
+
+/* Middle line */
+
+.pitch-line {
+    position: absolute;
+
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.center-line {
+    width: 100%;
+    height: 2px;
+
+    top: 50%;
+    left: 0;
+}
+
+
+/* Center circle */
+
+.center-circle {
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    border: 2px solid rgba(255,255,255,0.7);
+
+    border-radius: 50%;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* Goal areas */
+
+.goal-area {
+    position: absolute;
+
+    width: 35%;
+    height: 12%;
+
+    border: 2px solid rgba(255,255,255,0.7);
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.top-goal {
+    top: 0;
+}
+
+.bottom-goal {
+    bottom: 0;
+}
+
+
+/* ================= PLAYERS ================= */
+
+.football-player {
+    position: absolute;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #111827;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    border: 3px solid #16a34a;
+
+    transform: translate(-50%, -50%);
+
+    cursor: grab;
+
+    user-select: none;
+
+    touch-action: none;
+
+    z-index: 10;
+}
+
+.football-player:active {
+    cursor: grabbing;
+
+    transform: translate(-50%, -50%) scale(1.1);
+
+    z-index: 20;
+}
+
+
+/* ================= DEFAULT PLAYER POSITIONS ================= */
+
+.goalkeeper {
+    left: 50%;
+    top: 92%;
+}
+
+.d1 {
+    left: 15%;
+    top: 72%;
+}
+
+.d2 {
+    left: 38%;
+    top: 75%;
+}
+
+.d3 {
+    left: 62%;
+    top: 75%;
+}
+
+.d4 {
+    left: 85%;
+    top: 72%;
+}
+
+.m1 {
+    left: 15%;
+    top: 52%;
+}
+
+.m2 {
+    left: 38%;
+    top: 50%;
+}
+
+.m3 {
+    left: 62%;
+    top: 50%;
+}
+
+.m4 {
+    left: 85%;
+    top: 52%;
+}
+
+.s1 {
+    left: 38%;
+    top: 25%;
+}
+
+.s2 {
+    left: 62%;
+    top: 25%;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .football-pitch {
+        width: 90vw;
+
+        height: 560px;
+
+        max-height: 65vh;
+    }
+
+    .football-player {
+        width: 44px;
+        height: 44px;
+
+        font-size: 10px;
+    }
+
+}
+/* ================= FORMATION CONTROLS ================= */
+
+.formation-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.formation-controls button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.save-btn {
+    background: #16a34a;
+    color: white;
+}
+
+.reset-btn {
+    background: #374151;
+    color: white;
+}
+
+
+/* ================= SAVED FORMATIONS ================= */
+
+.saved-formations {
+    width: min(600px, 90vw);
+    margin: 30px auto;
+}
+
+.saved-formations h3 {
+    margin-bottom: 15px;
+}
+
+
+.saved-formation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: white;
+    padding: 15px;
+
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.saved-formation span {
+    display: block;
+    color: #6b7280;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+
+.load-btn,
+.delete-btn {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    width: 100px;
+    margin-top: 20px;
+}
+
+
+.load-btn {
+    background: #2563eb;
+    color: white;
+}
+
+
+.delete-btn {
+    background: #dc2626;
+    color: white;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .formation-controls {
+        flex-direction: column;
+    }
+
+    .formation-controls button {
+        width: 100%;
+    }
+
+    .saved-formation {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .load-btn,
+    .delete-btn {
+        margin-left: 0;
+        margin-right: 5px;
+    }
+
+}
+
+
+/* ================= PUBLIC NETWORK ================= */
+
+.search-box {
+    margin-bottom: 30px;
+}
+
+.search-box input {
+    width: 100%;
+
+    max-width: 600px;
+}
+
+.public-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.public-card {
+    background: #0d2a1c;
+
+    border: 1px solid #1e4632;
+
+    padding: 25px;
+
+    border-radius: 15px;
+}
+
+.public-card h3 {
+    margin: 15px 0 10px;
+}
+
+.public-card p {
+    color: #9ca3af;
+
+    margin-bottom: 10px;
+}
+
+.badge {
+    color: #4ade80;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #03100a;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 50px 20px;
+}
+
+footer p {
+    color: #9ca3af;
+
+    margin-top: 10px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+
+    .stats-grid,
+    .player-grid,
+    .public-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .section {
+        padding: 60px 5%;
+    }
+
+    .stats-grid,
+    .player-grid,
+    .public-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .form-box form {
+        flex-direction: column;
+    }
+
+    .form-box input,
+    .form-box select,
+    .form-box button {
+        width: 100%;
+    }
+
+    .match-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .result-card div {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
